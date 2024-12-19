@@ -11,7 +11,6 @@ type Props = {};
 export default function LatestProducts({}: Props) {
   const scrollRef: any = useRef();
   const [products, setProducts] = useState([]);
-console.log(products);
 
   const getProducts = async () => {
     try {
@@ -24,7 +23,6 @@ console.log(products);
         });
         
 
-        console.log(data);
         
       if (error) {
         console.error(error);

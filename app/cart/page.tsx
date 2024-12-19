@@ -14,7 +14,6 @@ export default function CartPage({}: Props) {
   const priceArray = basket?.map((product:any) => {
     return product.price * product.quantity;
   });
-  console.log(basket);
 
   useEffect(() => {
     const price: number = priceArray.reduce((acc:any, val:any) => acc + val, 0);

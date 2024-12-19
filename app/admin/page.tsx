@@ -61,7 +61,6 @@ const router = useRouter()
       .from("products")
       .insert(formData)
       .select()
-      console.log(data);
       router.push(`/product/${data[0].id}`)
 
     } catch (error) {

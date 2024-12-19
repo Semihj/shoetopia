@@ -19,15 +19,12 @@ export default function AddImages({
   const [isUploading, setIsUploading] = useState(false);
   const [files, setFiles] = useState([]);
   const [imageUrls, setImageUrls] = useState<Array<JSON>>([]);
-  console.log(formData);
 
   const onDrop = useCallback((acceptedFiles: any) => {
     // Do something with the files
     setFiles(acceptedFiles);
     const file = new FileReader();
-    console.log(acceptedFiles);
     file.onload = () => {
-      console.log(file.result);
     };
   }, []);
 
@@ -45,7 +42,6 @@ export default function AddImages({
   const handleRemoveImage = async (url) => {
     const copyImages = formData.images;
     const newImages = copyImages?.filter((img) => url !== img);
-    console.log(copyImages);
 
     setImageUrls(newImages);
     setFormData({ ...formData, images: newImages });
@@ -56,7 +52,6 @@ export default function AddImages({
     if (files.length > 0 && files.length + imageUrls.length <= 6) {
       const filesCopy = [...files];
       const urls = [];
-      console.log(filesCopy);
 
       for (const file of filesCopy) {
         try {
@@ -70,8 +65,6 @@ export default function AddImages({
       }
 
       setFormData({ ...formData, images: [...urls] });
-      console.log([...urls]);
-      console.log(formData);
 
       setImageUrls([...imageUrls, ...urls]);
       setIsUploading(false);
@@ -98,7 +91,6 @@ export default function AddImages({
         .from("images")
         .getPublicUrl(fileName);
 
-      console.log(imgData);
 
       return imgData.publicUrl;
     } catch (error) {

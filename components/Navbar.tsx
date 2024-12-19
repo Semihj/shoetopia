@@ -35,7 +35,6 @@ export const Navbar = (props: Props) => {
           .limit(limit);
         setProducts(data);
 
-        console.log(data);
       } else {
         setProducts([]);
         setIsLoading(false);

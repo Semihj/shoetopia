@@ -8,7 +8,6 @@ export default function Details({setFormData,formData}:{setFormData:any,formData
     e.preventDefault(); // Prevent default form submission
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  console.log(formData);
   const categories = [
     {
       id: 1,

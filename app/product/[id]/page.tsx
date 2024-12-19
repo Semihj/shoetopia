@@ -29,7 +29,6 @@ const ProductPage = (props: Props) => {
   const [nanoId, setNanoId] = useState<any>()
   const dispatch = useDispatch();
   const params = useParams();
-  console.log(favorites);
   
 
 

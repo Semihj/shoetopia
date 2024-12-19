@@ -43,7 +43,7 @@ console.log(products);
   }, []);
 
   return (
-    <div className="md:pr-[140px] md:px-[100px] px-4 flex flex-col w-full h-full ">
+    <div className="md:pr-[140px] md:px-[100px] lg:mt-10 px-4 flex flex-col w-full h-full ">
       <div className="w-full flex justify-between  ">
         <h1 className="font-semibold text-2xl lg:text-3xl ">
           Our Latest Products

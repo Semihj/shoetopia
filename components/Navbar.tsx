@@ -53,7 +53,7 @@ export const Navbar = (props: Props) => {
 
   return (
     <nav className="fixed h-20 w-full max-w-[100vw] bg-gray-900 flex items-center md:px-20 px-2 justify-between text-white z-10  ">
-      <Link href={"/"} className="font-bold text-2xl md:text-4xl ">
+      <Link href={"/"} className="font-bold text-4xl md:text-6xl ">
         Shoe<span className="italic text-green-400 ">topia</span>
       </Link>
       <div className=" hidden md:flex gap-10 font-semibold text-2xl font-sans ">

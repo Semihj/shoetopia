@@ -43,7 +43,7 @@ export default function CartPage({}: Props) {
             ))}
           </div>
 
-          <div className="w-full max-w-[350px] mt-4  lg:mt-10 lg:p-5 lg:ml-5 lg:border bg-white shadow-xl rounded-xl h-max text-base gap-2 flex flex-col ">
+          <div className="w-full lg:max-w-[350px] mt-4  lg:mt-10 lg:p-5 lg:ml-5 lg:border bg-white lg:shadow-xl lg:rounded-xl h-max text-base gap-2 flex flex-col justify-center lg:justify-normal ">
             <div className="flex w-full justify-between ">
               <p className="font-semibold">Subtotal</p>
               <span className="font-semibold">${totalPrice} </span>

@@ -81,7 +81,7 @@ export default function MobileSearch({}: Props) {
             defaultValue={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <button>
+          <button className="flex w-full justify-end mr-5 " >
             {" "}
             <SearchIcon />
           </button>
@@ -91,10 +91,10 @@ export default function MobileSearch({}: Props) {
             Loading
           </div>
         ) : (
-          <div className="flex flex-col gap-3 ">
+          <div className="flex flex-col gap-3 overflow-y-scroll  ">
             {products?.map((product, i) => (
               <SheetClose
-                className="flex gap-2 border border-gray-500 p-1 rounded-lg shadow-lg"
+                className="flex gap-2 border border-gray-500 p-1 rounded-lg shadow-lg h-full"
                 key={i}
                 onClick={() => {
                   router.push(`/product/${product.id} `);
@@ -107,9 +107,9 @@ export default function MobileSearch({}: Props) {
                   height={70}
                   className="border-2 shadow-md"
                 />
-                <div className="flex flex-col my-2 justify-between ">
+                <div className="flex flex-col my-2 justify-between h-full ">
                   <h2 className="font-semibold ">{product.title} </h2>
-                  <p className="font-semibold w-full justify-end flex ">
+                  <p className="font-semibold h-full w-full justify-end items-end flex p-3 ">
                     {product.price} ${" "}
                   </p>
                 </div>

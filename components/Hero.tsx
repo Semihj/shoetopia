@@ -9,7 +9,7 @@ import hero from "@/public/hero.jpg";
 export default function Hero() {
 
   return (
-    <div className="w-screen min-h-screen flex flex-col md:flex-row justify-between md:pr-[140px] md:px-[100px]   ">
+    <div className="w-screen h-full flex flex-col md:flex-row lg:justify-between md:pr-[140px] md:px-[100px]   ">
       <div className="flex flex-col md:mt-[100px] px-4 mt-5 max-w-[600px]  ">
         <span className="font-bold md:text-3xl text-2xl ">
           Discover your perfect pair, right here in Shoe
@@ -47,7 +47,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <div className="md:bg-gray-800 mt-4  rounded-lg w-screen h-[300px] md:w-[580px] md:h-[470px] md:mt-[55px] p-4   ">
+      <div className="md:bg-gray-800 mt-4  rounded-lg w-screen h-[300px] md:w-[580px] md:h-[470px] lg:mt-[55px] p-4   ">
         <div className="relative w-full h-full ">
           <Image
             src={hero}

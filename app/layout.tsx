@@ -22,6 +22,9 @@ export const metadata: Metadata = {
   title: "Shoetopia",
   description:
     "Welcome to Shoetopia, your ultimate destination for footwear fashion. Discover a world of endless possibilities, from classic sneakers to elegant heels and everything in between.",
+  verification: {
+    google: "g3-BCfDeRPf6XBNGCbsB3wcxkkaC4DMGoRzZYSmlhEo",
+  },
 };
 
 export default function RootLayout({
@@ -38,7 +41,7 @@ export default function RootLayout({
           <StoreProvider>
             <Navbar />
             <div className="py-20 w-full lg:overflow-hidden ">{children}</div>
-            <Footer/>
+            <Footer />
           </StoreProvider>
           <Toaster />
         </body>

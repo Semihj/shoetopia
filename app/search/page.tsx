@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 import ProductCard from "./_components/ProductCard";
+import { log } from "console";
 
 type Props = {};
 type ExtractedProductProps = Pick<
@@ -33,6 +34,7 @@ export default function SearchPage({}: Props) {
   const text = searchParams.get("text");
   const gender = searchParams.get("gender");
   const category = searchParams.get("category");
+  const [categories, setCategories] = useState([])
   const [products, setProducts] = useState<ExtractedProductProps[]>();
   const [isMen, setIsMen] = useState(false);
   const [isWomen, setIsWomen] = useState(false);
@@ -66,92 +68,29 @@ export default function SearchPage({}: Props) {
       isChecked: false,
     },
   ]);
-  const categories = [
-    {
-      id: 1,
-      label: "Men's Shoes",
-    },
-    {
-      id: 2,
-      label: "Women's Shoes",
-    },
-    {
-      id: 3,
-      label: "Unisex Shoes",
-    },
-    {
-      id: 4,
-      label: "Jordan Shoes",
-    },
-    {
-      id: 5,
-      label: "Basketball Shoes",
-    },
-    {
-      id: 6,
-      label: "Running Shoes",
-    },
-    {
-      id: 7,
-      label: "Casual Shoes",
-    },
-    {
-      id: 8,
-      label: "Formal Shoes",
-    },
-    {
-      id: 9,
-      label: "Boots",
-    },
-    {
-      id: 10,
-      label: "Sandals",
-    },
-    {
-      id: 11,
-      label: "Slippers",
-    },
-    {
-      id: 12,
-      label: "Athletic Shoes",
-    },
-    {
-      id: 13,
-      label: "Soccer Cleats",
-    },
-    {
-      id: 14,
-      label: "Tennis Shoes",
-    },
-    {
-      id: 15,
-      label: "Golf Shoes",
-    },
-    {
-      id: 16,
-      label: "Hiking Boots",
-    },
-    {
-      id: 17,
-      label: "Work Boots",
-    },
-    {
-      id: 18,
-      label: "Winter Boots",
-    },
-    {
-      id: 19,
-      label: "Rain Boots",
-    },
-    {
-      id: 20,
-      label: "Flip Flops",
-    },
-    {
-      id: 21,
-      label: "Skate Shoes",
-    },
-  ];
+  const getCategories = async () => {
+    try {
+      const {data} = await supabase.from("products").select("category")
+      if (data) {
+        const categoryValues = data.map((item) => item.category);
+        setCategories([new Set(categoryValues)])
+        setCategories(Array.from(categories[0]))
+      } else {
+        setCategories([]); // Handle the case where data is null or undefined
+      }
+      
+    } catch (error) {
+      console.log(error);
+      
+    }
+  }
+
+  
+  useEffect(() => {
+    getCategories()
+  }, [])
+
+ 
 
   useEffect(() => {
     setIsMen(false);
@@ -177,6 +116,7 @@ export default function SearchPage({}: Props) {
     }
   }, [gender]);
 
+  
   const getProduct = async () => {
     const capitalizedGender =
       gender?.charAt(0).toUpperCase() + gender?.slice(1);
@@ -358,12 +298,12 @@ export default function SearchPage({}: Props) {
                 ))}
             </div>
             <div className="mt-10 flex flex-col gap-2 ">
-              {categories.map((categoryItem) => (
+              {categories[0] && Array.from(categories[0]).map((categoryItem) => (
                 <Link
                   className="font-semibold text-sm"
-                  href={`/search?text=&category=${categoryItem.label}`}
+                  href={`/search?text=&category=${categoryItem}`}
                 >
-                  <span>{categoryItem.label} </span>
+                  <span>{categoryItem} </span>
                 </Link>
               ))}
             </div>
